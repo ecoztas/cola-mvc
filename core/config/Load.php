@@ -37,7 +37,7 @@ namespace Cola\Config {
     class Load
     {
         public static $libraries = array('Database', 'Input', 'Cookie', 'UserAgent', 'Upload');
-        public static $helpers   = array('url');
+        public static $helpers   = array('URL_helper');
                    
         private function __construct()
         {
