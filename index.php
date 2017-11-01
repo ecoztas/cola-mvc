@@ -30,6 +30,7 @@
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	https://github.com/emrecanoztas/cola-mvc
  * @version	0.0.1
+ *
  */
 
 include ('core/config/Config.php');
