@@ -14,7 +14,53 @@ class Controller
 
     public function loadViews($viewNames, $datas = null)
     {
-        
+        if (is_array($viewNames)) {
+            foreach ($viewNames as $view) {
+                $getFileNames = $this->getFullFileName(APP_PATH . 'views' . DIRECTORY_SEPERATOR, $view);
+
+                if (is_array($getFileNames)) {
+                    foreach ($getFileNames as $fileName) {
+                        if (file_exists(APP_PATH . 'views' . DIRECTORY_SEPERATOR . $fileName)) {
+                            include (APP_PATH . 'views' . DIRECTORY_SEPERATOR . $fileName);
+                        } else {
+                            Cola::error($view . ' view is not found!', 'Please check your view names!', 1024);
+                        }
+                    }
+                } else {
+                    if (!is_null($getFileNames)) {
+                        if (file_exists(APP_PATH . 'views' . DIRECTORY_SEPERATOR . $getFileNames)) {
+                            include (APP_PATH . 'views' . DIRECTORY_SEPERATOR . $getFileNames);
+                        } else {
+                            Cola::error($view . ' view is not found', 'Please check your view names!', 1024);
+                        }
+                    } else {
+                        Cola::error($view. ' view is not found!', 'Please check your view names!', 1024);
+                    }
+                }
+            }
+        } else {
+            $getFileNames = $this->getFullFileName(APP_PATH . 'views'. DIRECTORY_SEPERATOR, $viewNames);
+
+            if (is_array($getFileNames)) {
+                foreach ($getFileNames as $fileName) {
+                    if (file_exists(APP_PATH . 'views' . DIRECTORY_SEPERATOR . $fileName)) {
+                        include (APP_PATH . 'views' . DIRECTORY_SEPERATOR . $fileName);
+                    } else {
+                        Cola::error($view . ' view is not found', 'Please check your view names!', 1024);
+                    }
+                }
+            } else {
+                if (!is_null($getFileNames)) {
+                    if (file_exists(APP_PATH . 'views' . DIRECTORY_SEPERATOR . $getFileNames)) {
+                        include (APP_PATH . 'views' . DIRECTORY_SEPERATOR . $getFileNames);
+                    } else {
+                        Cola::error($viewNames . ' view is not found', 'Please check your view names!', 1024);
+                    }
+                } else {
+                    Cola::error($viewNames . ' view is not found', 'Please check your view names!', 1024);
+                }
+            }
+        }
     }
 
     public function loadModels($modelNames)
@@ -33,6 +79,11 @@ class Controller
     }
     
     public function loadPlugins($pluginNames)
+    {
+        
+    }
+
+    public function loadError($errors, $data = null)
     {
         
     }
@@ -60,5 +111,4 @@ class Controller
             }
         }
     }
-
 }

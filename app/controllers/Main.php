@@ -2,9 +2,11 @@
 
 class Main extends Controller
 {
+    public $controller = null;
+
     function __construct()
     {
-
+        $this->controller = new Controller();
     }
 
     public function main()
