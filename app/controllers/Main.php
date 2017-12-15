@@ -11,11 +11,11 @@ class Main extends Controller
 
     public function main()
     {
-        echo('Hello Cola-MVC!');
+        $this->controller->loadViews('main_view');
     }
     
     public function _lost()
     {
-        echo('I\'m lost!');
+        echo('I\'m lost! :(');
     }
 }
