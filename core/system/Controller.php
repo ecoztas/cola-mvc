@@ -83,7 +83,7 @@ class Controller
         
     }
 
-    public function loadError($errors, $data = null)
+    public function loadErrors($errorPages, $data = null)
     {
         
     }

@@ -34,6 +34,11 @@ class Model
         
     }
 
+    public function loadErrors($errorPages, $data = null)
+    {
+        
+    }
+
     private function getFullFileName($inTheFolder, $fileName)
     {
         if (!is_null($inTheFolder) && !is_bool($inTheFolder)) {
