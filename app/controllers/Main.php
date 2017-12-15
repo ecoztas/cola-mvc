@@ -9,7 +9,7 @@ class Main extends Controller
 
     public function main()
     {
-
+        echo('Hello World!');
     }
     
     public function _lost()
