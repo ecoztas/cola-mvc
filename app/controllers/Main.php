@@ -1,20 +1,19 @@
 <?php
 
-use Cola\System\Controller as Controller;
-use Cola\Libraries\UserAgent as UserAgent;
-
 class Main extends Controller
 {
-
-    public function __construct()
+    function __construct()
     {
-        parent::__construct();
-        $this->controller = new parent;
+        
     }
 
-    public function index()
+    public function main()
     {
-        $this->controller->loadView('Main_view');
-    }
 
+    }
+    
+    public function _lost()
+    {
+
+    }
 }

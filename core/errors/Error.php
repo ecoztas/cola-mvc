@@ -1,40 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Error!</title>
+    <meta charset="utf-8">
 
-    <style>
-        h1,
-        h3{
+    <style type="text/css">
+        h1 {
+            padding-top: 5%;
+            color: #FF0000;
             text-align: center;
         }
     </style>
 
 </head>
 <body>
-    
+
     <h1>
         <?php
-            if (!is_null($errorType)) {
-                echo($errorType);
+            if (isset($message)) {
+                echo($message);
             } else {
-                echo('Error!');
+                echo('<h1>Error!</h1>');
             }
         ?>
     </h1>
-
-    <h3>
-        <small>
-            <?php
-                if (!is_null($description)) {
-                    echo($description);
-                } else {
-                    echo('Description not found!');
-                }
-            ?>
-        </small>
-    </h3>
 
 </body>
 </html>
