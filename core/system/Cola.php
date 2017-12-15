@@ -18,6 +18,7 @@ class Cola
 
     }
 
+    // startup cola-mvc
     public static function run()
     {
         if (file_exists(APP_PATH . 'config' . DIRECTORY_SEPERATOR . 'config.php')) {
@@ -34,7 +35,7 @@ class Cola
             if (isset($_GET['url'])) {
                 self::$_url = explode(DIRECTORY_SEPERATOR, rtrim($_GET['url'], DIRECTORY_SEPERATOR));
 
-                self::$_page = ucfirst(self::$_url[0]);
+                self::$_page = strip_tags(ucfirst(self::$_url[0]));
                 array_shift(self::$_url);
 
                 if (file_exists(APP_PATH . 'controllers' . DIRECTORY_SEPERATOR . self::$_page . '.php')) {
@@ -140,6 +141,7 @@ class Cola
         }
     }
 
+    // load controller and model classess
     public static function base()
     {
         if (file_exists(CORE_PATH . 'system' . DIRECTORY_SEPERATOR . 'Controller.php')) {
@@ -155,6 +157,7 @@ class Cola
         }
     }
 
+    // autoload libraries, helpers and plugins
     public static function autoload($libraries, $helpers, $plugins)
     {	
         $loadLibraries = function() use($libraries) {
@@ -203,6 +206,7 @@ class Cola
 		$loadPlugins();
     }
 
+    // error handling
     public static function error($title, $description, $type)
     {
         $errorType = '';
@@ -234,6 +238,7 @@ class Cola
         }
     }
 
+    // stop the system
     public static function stop($message = null)
     {
         if (!empty($message)) {
@@ -243,6 +248,7 @@ class Cola
         }
     }
 
+    // get mvc version
     public static function getVersion()
     {
         return(VERSION);
